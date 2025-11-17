@@ -16,11 +16,13 @@
 
 1.PMSM的电阻，电感，磁链不同，请修改PMSM_Control_Core/EKF.c里的void EKF_init()对应的参数
 
-2.直流母线电压不同，请修改PMSM_Control_Core/SVPWM.c里的Udc和DivUdc参数
+2.PMSM的极对数不同，请修改Hardware.h里的POLE_PAIRS参数
 
-3.采样电路不同（即不使用配套的评估板而是你自己的板子），请修改PMSM_Control_Core/Hardware.c里的IA_K和IB_K参数，这里的参数表示每安电流对应ADC采样端多少伏的电压，由于上电时，会进行一次VCC_3V3，IA_REF，IB_REF离线校正，因此事实上这三个参数并不需要特意修改
+3.直流母线电压不同，请修改PMSM_Control_Core/SVPWM.c里的Udc和DivUdc参数
 
-4.在不同的硬件上运行时，如果电机不能运行或者运行一会就停止，请调整一下PI参数，修改PMSM_Control_Core/PI_Controller.h里的GenerateFunction_PIController各项参数
+4.采样电路不同（即不使用配套的评估板而是你自己的板子），请修改PMSM_Control_Core/Hardware.c里的IA_K和IB_K参数，这里的参数表示每安电流对应ADC采样端多少伏的电压，由于上电时，会进行一次VCC_3V3，IA_REF，IB_REF离线校正，因此事实上这三个参数并不需要特意修改
+
+5.在不同的硬件上运行时，如果电机不能运行或者运行一会就停止，请调整一下PI参数，修改PMSM_Control_Core/PI_Controller.h里的GenerateFunction_PIController各项参数
 
 ## 📈 **运行以及波形查看**
 
